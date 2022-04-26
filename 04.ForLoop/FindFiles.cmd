@@ -1,4 +1,5 @@
 :: 顯示 目錄中所有符合 .cmd .avi *.mpg的檔案名稱
+:: 預設括弧裡面就是檔案
 @echo off
 for %%i in (*.cmd *.avi *.mpg) DO @echo %%i
 
