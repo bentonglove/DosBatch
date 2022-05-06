@@ -12,5 +12,5 @@ for %%i in (%list%) do (
 @echo off 
 set l2=home "is a" big place 
 for %%i in (%l2%) do ( 
-   echo %%i | findstr '"'
+   echo %%i
 )

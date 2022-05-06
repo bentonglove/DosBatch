@@ -5,14 +5,23 @@
 :: %appdata%\Microsoft\Teams
 :: Delete all files and folders in the %appdata%\Microsoft\Teams directory.
 :: Restart Teams
+:: 循環處理字串
 
 @echo off
 set CachePath=%appdata%\Microsoft\Teams
 echo %CachePath%
 set LIST=blob_storage Cache "Code Cache" databases GPUCache IndexedDB "Local Storage"
-echo %LIST%
-SETLOCAL ENABLEDELAYEDEXPANSION
-for %%i in (%LIST%) do (
-    set x=%%i
-    echo %!x!:~1,4%
+
+:IterateList
+for %%a IN (%LIST%) DO (
+    call :Make_Full_Path %%a
 )
+GOTO :eof
+
+:Make_Full_Path
+set To_Be_Clear="%CachePath%\%~1"
+if EXIST %To_Be_Clear% (
+    Call del /Q /S %To_Be_Clear%
+    Call rd /Q /S %To_Be_Clear%
+)
+
