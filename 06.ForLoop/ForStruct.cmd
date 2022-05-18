@@ -1,8 +1,9 @@
-:: for �j���l���ܼơA�b���g���妸�ɮɡA�Шϥ� %%variable�A�Ӧb�R�O�C����ɭn��� %variable�C
-:: for �j���l���ܼƦ��j�p�g���Ϥ��A�ҥH %%i ���P�� %%I�C
-:: for �j�餺���ܼƷ|�����Ȳ��`�����ΡC
-:: �妸�ɤ��u�n�O�Q�άA��()�����h�漶�g�����O�A��ڤW���ݦ��@��A�b�A��()�̭������ܼƮɳ��|�J��ݭn�}�ҥΩ��������ܼ��X�R�\�઺���D�A�@�w�n�S�O�`�N�C
 @echo off
+:: for 迴圈初始化變數，在撰寫為批次檔時，請使用 %%variable，而在命令列執行時要改用 %variable。
+:: for 迴圈初始化變數有大小寫的區分，所以 %%i 不同於 %%I。
+:: for 迴圈內的變數會有取值異常的情形。
+:: 批次檔中只要是利用括弧()分成多行撰寫的指令，實際上都看成一行，在括弧()裡面取用變數時都會遇到需要開啟用延遲環境變數擴充功能的問題，一定要特別注意。
+
 for %%i in (*) do (
     echo %%i
     timeout 1
