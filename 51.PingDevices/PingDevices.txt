@@ -1,0 +1,26 @@
+1. 取得Android裝置資訊
+
+adb -s 201115230D5062 shell getprop > DeviceInfo.txt
+useful field: [dhcp.wlan0.ipaddress]: [192.168.10.80]
+
+adb -s 201115230D5062 shell getprop | grep ipaddress
+
+adb devices -l
+adb -t transpot_id shell ......
+adb -t 1 shell getprop | grep ipaddress
+
+
+1-1. 取出ip字串
+:: 讀取命令：
+:: 依照分隔符號將內容賦值給指定變數
+for /F "tokens=2 delims=: " %%a in ('adb -t 1 shell getprop ^| grep ipaddress') do echo %%a
+for /F "tokens=1 delims=[]" %%b in(%a) doe echo %%b
+
+2. 從Android裝置往外部Ping
+adb -t 1 shell ping 8.8.8.8
+adb -t 1 shell ping -c 5 8.8.8.8
+
+3. 從PC ping DUT
+
+
+4. 判讀 Ping是否成功
