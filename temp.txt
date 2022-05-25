@@ -1,0 +1,4 @@
+List of devices attached
+191155230E0031	device
+201115230D5062	device
+
